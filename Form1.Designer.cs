@@ -1,249 +1,245 @@
+using System;
+using System.Collections.Generic;
+using System.Windows.Forms;
+
 namespace oop9_products
 {
-    partial class Form1
+    public partial class Form1 : Form
     {
-        /// <summary>
-        /// Обязательная переменная конструктора.
-        /// </summary>
-        private System.ComponentModel.IContainer components = null;
-
-        /// <summary>
-        /// Освободить все используемые ресурсы.
-        /// </summary>
-        /// <param name="disposing">истинно, если управляемый ресурс должен быть удален; иначе ложно.</param>
-        protected override void Dispose(bool disposing)
+        public abstract class Product
         {
-            if (disposing && (components != null))
+            public string Name { get; set; }
+            public double Price { get; set; }
+            public int Quantity { get; set; }
+
+            public virtual double CalculateTotal()
             {
-                components.Dispose();
+                return Price * Quantity;
             }
-            base.Dispose(disposing);
         }
 
-        #region Код, автоматически созданный конструктором форм Windows
-
-        /// <summary>
-        /// Требуемый метод для поддержки конструктора — не изменяйте 
-        /// содержимое этого метода с помощью редактора кода.
-        /// </summary>
-        private void InitializeComponent()
+        public class Clothing : Product
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.numericUpDownQuantity = new System.Windows.Forms.NumericUpDown();
-            this.buttonAddToCart = new System.Windows.Forms.Button();
-            this.listBoxShoppingCart = new System.Windows.Forms.ListBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.buttonCalculateTotal = new System.Windows.Forms.Button();
-            this.labelTotal = new System.Windows.Forms.Label();
-            this.listBoxStoreProducts = new System.Windows.Forms.ListBox();
-            this.comboBoxProductName = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBoxWeight = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.labelCharacteristics = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownQuantity)).BeginInit();
-            this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(11, 45);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(122, 20);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Оберіть товар:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(12, 88);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(112, 20);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Кількість, шт:";
-            // 
-            // numericUpDownQuantity
-            // 
-            this.numericUpDownQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.numericUpDownQuantity.Location = new System.Drawing.Point(139, 86);
-            this.numericUpDownQuantity.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDownQuantity.Name = "numericUpDownQuantity";
-            this.numericUpDownQuantity.Size = new System.Drawing.Size(120, 26);
-            this.numericUpDownQuantity.TabIndex = 2;
-            this.numericUpDownQuantity.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // buttonAddToCart
-            // 
-            this.buttonAddToCart.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonAddToCart.Location = new System.Drawing.Point(24, 166);
-            this.buttonAddToCart.Name = "buttonAddToCart";
-            this.buttonAddToCart.Size = new System.Drawing.Size(198, 30);
-            this.buttonAddToCart.TabIndex = 4;
-            this.buttonAddToCart.Text = "Додати в кошик";
-            this.buttonAddToCart.UseVisualStyleBackColor = true;
-            this.buttonAddToCart.Click += new System.EventHandler(this.buttonAddToCart_Click);
-            // 
-            // listBoxShoppingCart
-            // 
-            this.listBoxShoppingCart.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.listBoxShoppingCart.FormattingEnabled = true;
-            this.listBoxShoppingCart.ItemHeight = 20;
-            this.listBoxShoppingCart.Location = new System.Drawing.Point(16, 232);
-            this.listBoxShoppingCart.Name = "listBoxShoppingCart";
-            this.listBoxShoppingCart.Size = new System.Drawing.Size(260, 144);
-            this.listBoxShoppingCart.TabIndex = 5;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(12, 208);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(62, 20);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Кошик:";
-            // 
-            // buttonCalculateTotal
-            // 
-            this.buttonCalculateTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonCalculateTotal.Location = new System.Drawing.Point(280, 86);
-            this.buttonCalculateTotal.Name = "buttonCalculateTotal";
-            this.buttonCalculateTotal.Size = new System.Drawing.Size(198, 33);
-            this.buttonCalculateTotal.TabIndex = 7;
-            this.buttonCalculateTotal.Text = "Готово";
-            this.buttonCalculateTotal.UseVisualStyleBackColor = true;
-            this.buttonCalculateTotal.Click += new System.EventHandler(this.buttonCalculateTotal_Click);
-            // 
-            // labelTotal
-            // 
-            this.labelTotal.AutoSize = true;
-            this.labelTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelTotal.Location = new System.Drawing.Point(277, 130);
-            this.labelTotal.Name = "labelTotal";
-            this.labelTotal.Size = new System.Drawing.Size(0, 20);
-            this.labelTotal.TabIndex = 8;
-            // 
-            // listBoxStoreProducts
-            // 
-            this.listBoxStoreProducts.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.listBoxStoreProducts.FormattingEnabled = true;
-            this.listBoxStoreProducts.ItemHeight = 20;
-            this.listBoxStoreProducts.Location = new System.Drawing.Point(287, 232);
-            this.listBoxStoreProducts.Name = "listBoxStoreProducts";
-            this.listBoxStoreProducts.Size = new System.Drawing.Size(260, 144);
-            this.listBoxStoreProducts.TabIndex = 9;
-            // 
-            // comboBoxProductName
-            // 
-            this.comboBoxProductName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.comboBoxProductName.FormattingEnabled = true;
-            this.comboBoxProductName.Location = new System.Drawing.Point(139, 42);
-            this.comboBoxProductName.Name = "comboBoxProductName";
-            this.comboBoxProductName.Size = new System.Drawing.Size(121, 28);
-            this.comboBoxProductName.TabIndex = 10;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(12, 9);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(339, 20);
-            this.label4.TabIndex = 11;
-            this.label4.Text = "Для формування замовлення введіть дані:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.Location = new System.Drawing.Point(283, 209);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(102, 20);
-            this.label5.TabIndex = 12;
-            this.label5.Text = "В наявності:";
-            // 
-            // textBoxWeight
-            // 
-            this.textBoxWeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxWeight.Location = new System.Drawing.Point(139, 127);
-            this.textBoxWeight.Name = "textBoxWeight";
-            this.textBoxWeight.Size = new System.Drawing.Size(121, 26);
-            this.textBoxWeight.TabIndex = 13;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label6.Location = new System.Drawing.Point(12, 130);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(64, 20);
-            this.label6.TabIndex = 14;
-            this.label6.Text = "Вага, г:";
-            // 
-            // labelCharacteristics
-            // 
-            this.labelCharacteristics.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelCharacteristics.Location = new System.Drawing.Point(276, 39);
-            this.labelCharacteristics.Name = "labelCharacteristics";
-            this.labelCharacteristics.Size = new System.Drawing.Size(271, 41);
-            this.labelCharacteristics.TabIndex = 15;
-            // 
-            // Form1
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(567, 395);
-            this.Controls.Add(this.labelCharacteristics);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.textBoxWeight);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.comboBoxProductName);
-            this.Controls.Add(this.listBoxStoreProducts);
-            this.Controls.Add(this.labelTotal);
-            this.Controls.Add(this.buttonCalculateTotal);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.listBoxShoppingCart);
-            this.Controls.Add(this.buttonAddToCart);
-            this.Controls.Add(this.numericUpDownQuantity);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Name = "Form1";
-            this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownQuantity)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            public string Size { get; set; }
+            public Clothing(string name, double price, int quantity, string size)
+            {
+                Name = name;
+                Price = price;
+                Quantity = quantity;
+                Size = size;
+            }
         }
 
-        #endregion
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.NumericUpDown numericUpDownQuantity;
-        private System.Windows.Forms.Button buttonAddToCart;
-        private System.Windows.Forms.ListBox listBoxShoppingCart;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button buttonCalculateTotal;
-        private System.Windows.Forms.Label labelTotal;
-        private System.Windows.Forms.ListBox listBoxStoreProducts;
-        private System.Windows.Forms.ComboBox comboBoxProductName;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBoxWeight;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label labelCharacteristics;
+        public class Book : Product
+        {
+            public string Author { get; set; }
+            public Book(string name, double price, int quantity, string author)
+            {
+                Name = name;
+                Price = price;
+                Quantity = quantity;
+                Author = author;
+            }
+        }
+
+        public class Bag : Product
+        {
+            public string Brend { get; set; }
+            public Bag(string name, double price, int quantity, string brend)
+            {
+                Name = name;
+                Price = price;
+                Quantity = quantity;
+                Brend = brend;
+            }
+        }
+
+        public class Fruit : Product
+        {
+            public double Weight { get; set; }
+
+            public Fruit(string name, double price, int quantity, double weight)
+            {
+                Name = name;
+                Price = price;
+                Quantity = quantity;
+                Weight = weight;
+            }
+
+            public override double CalculateTotal()
+            {
+                return Price * Weight/1000;
+            }
+        }
+
+        public class ShoppingCart
+        {
+            private List<Product> products = new List<Product>();
+
+            public List<Product> Products
+            {
+                get { return products; }
+            }
+
+            public void AddToCart(Product product)
+            {
+                products.Add(product);
+            }
+
+            public double CalculateTotal()
+            {
+                double total = 0;
+                foreach (Product product in products)
+                {
+                    total += product.CalculateTotal();
+                }
+                return total;
+            }
+        }
+
+        private List<Product> storeProducts = new List<Product>();
+
+        public Form1()
+        {
+            InitializeComponent();
+
+            storeProducts.Add(new Clothing("Футболка", 350, 1, "M"));
+            storeProducts.Add(new Clothing("Шорти", 400.7, 1, "S"));
+            storeProducts.Add(new Clothing("Светер", 670, 1, "XL"));
+            storeProducts.Add(new Book("Кобзар", 380.5, 1, "Т. Г. Шевченко"));
+            storeProducts.Add(new Book("Тіні забутих предків", 180, 1, "М. Коцюбинський"));
+            storeProducts.Add(new Book("Тигролови", 200, 1, "І. Багряний"));
+            storeProducts.Add(new Bag("Рюкзак", 512, 1, "Baggg"));
+            storeProducts.Add(new Fruit("Яблуки", 18, 1, 1000)); 
+            storeProducts.Add(new Fruit("Банани", 56, 1, 1000));
+            storeProducts.Add(new Fruit("Сливи", 87, 1, 1000));
+
+            // Обновлено список продуктів в магазині
+            UpdateStoreProductList();
+
+            // Додано обробник події SelectedIndexChanged для comboBoxProductName
+            comboBoxProductName.SelectedIndexChanged += ComboBoxProductName_SelectedIndexChanged;
+
+            // Додано всі продукти в comboBoxProductName
+            foreach (Product product in storeProducts)
+            {
+                comboBoxProductName.Items.Add(product.Name);
+            }
+
+            // Встановлюємо обраний продукт за замовчуванням (перший продукт у списку)
+            comboBoxProductName.SelectedIndex = 0;
+        }
+
+        private void UpdateStoreProductList()
+        {
+            listBoxStoreProducts.Items.Clear();
+            foreach (Product product in storeProducts)
+            {
+                listBoxStoreProducts.Items.Add($"{product.Name} - {product.CalculateTotal()} UAH");
+            }
+        }
+
+        private void ComboBoxProductName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Виводимо характеристики обраного продукту в labelCharacteristics
+            string selectedProductName = comboBoxProductName.SelectedItem.ToString();
+            Product selectedProduct = storeProducts.Find(product => product.Name == selectedProductName);
+
+            if (selectedProduct is Fruit)
+            {
+                Fruit selectedFruit = selectedProduct as Fruit;
+                labelCharacteristics.Text = $"Вартість (за кілограм): {selectedFruit.Price} UAH";
+            }
+            else if (selectedProduct is Clothing)
+            {
+                Clothing selectedClothing = selectedProduct as Clothing;
+                labelCharacteristics.Text = $"Розмір: {selectedClothing.Size}\nВартість: {selectedClothing.Price} UAH";
+            }
+            else if (selectedProduct is Book)
+            {
+                Book selectedBook = selectedProduct as Book;
+                labelCharacteristics.Text = $"Автор: {selectedBook.Author}";
+            }
+            else if (selectedProduct is Bag)
+            {
+                Bag selectedBag = selectedProduct as Bag;
+                labelCharacteristics.Text = $"Бренд: {selectedBag.Brend}";
+            }
+            else
+            {
+                labelCharacteristics.Text = string.Empty;
+            }
+        }
+
+        private ShoppingCart cart = new ShoppingCart();
+
+        private void buttonAddToCart_Click(object sender, EventArgs e)
+        {
+            // Отримуємо обране значення з comboBoxProductName
+            string selectedProductName = comboBoxProductName.SelectedItem.ToString();
+
+            // Знаходимо продукт в магазині за його іменем
+            Product selectedProduct = storeProducts.Find(product => product.Name == selectedProductName);
+
+            // Код для добавлення обраного продукту в корзину
+            double price = selectedProduct.Price;
+            int quantity = Convert.ToInt32(numericUpDownQuantity.Value);
+
+            if (selectedProduct is Fruit)
+            {
+                // Якщо обраний продукт є фруктом, додайте вагу з textBoxWeight
+                double weight;
+                if (double.TryParse(textBoxWeight.Text, out weight))
+                {
+                    // Перевірка діапазону ваги
+                    if (weight < 100)
+                    {
+                        MessageBox.Show("Мінімальна вага для замовлення - 100 г.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    else if (weight > 8000)
+                    {
+                        MessageBox.Show("Максимальна вага для замовлення - 8000 г.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    // Додавання фрукта в корзину
+                    cart.AddToCart(new Fruit(selectedProduct.Name, price, quantity, weight));
+                }
+                else
+                {
+                    MessageBox.Show("Некоректне значення ваги. Введіть числове значення.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+            else
+            {
+                // Додавання інших продуктів в корзину
+                cart.AddToCart(selectedProduct);
+            }
+
+            // Очищення полів після добавлення товару
+            numericUpDownQuantity.Value = 1;
+
+            // Оновлення списку продуктів в корзині
+            UpdateShoppingCartList();
+        }
+
+        private void buttonCalculateTotal_Click(object sender, EventArgs e)
+        {
+            // Код для расчета и вывода общей стоимости
+            double total = cart.CalculateTotal();
+            labelTotal.Text = $"Сума: {total} UAH";
+        }
+
+        private void UpdateShoppingCartList()
+        {
+            listBoxShoppingCart.Items.Clear();
+            foreach (Product product in cart.Products)
+            {
+                listBoxShoppingCart.Items.Add($"{product.Name} - {product.CalculateTotal()} UAH");
+            }
+        }
+
     }
 }
-
