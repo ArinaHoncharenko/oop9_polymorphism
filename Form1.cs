@@ -6,98 +6,9 @@ namespace oop9_products
 {
     public partial class Form1 : Form
     {
-        public abstract class Product
-        {
-            public string Name { get; set; }
-            public double Price { get; set; }
-            public int Quantity { get; set; }
-
-            public virtual double CalculateTotal()
-            {
-                return Price * Quantity;
-            }
-        }
-
-        public class Clothing : Product
-        {
-            public string Size { get; set; }
-            public Clothing(string name, double price, int quantity, string size)
-            {
-                Name = name;
-                Price = price;
-                Quantity = quantity;
-                Size = size;
-            }
-        }
-
-        public class Book : Product
-        {
-            public string Author { get; set; }
-            public Book(string name, double price, int quantity, string author)
-            {
-                Name = name;
-                Price = price;
-                Quantity = quantity;
-                Author = author;
-            }
-        }
-
-        public class Bag : Product
-        {
-            public string Brend { get; set; }
-            public Bag(string name, double price, int quantity, string brend)
-            {
-                Name = name;
-                Price = price;
-                Quantity = quantity;
-                Brend = brend;
-            }
-        }
-
-        public class Fruit : Product
-        {
-            public double Weight { get; set; }
-
-            public Fruit(string name, double price, int quantity, double weight)
-            {
-                Name = name;
-                Price = price;
-                Quantity = quantity;
-                Weight = weight;
-            }
-
-            public override double CalculateTotal()
-            {
-                return Price * Weight/1000;
-            }
-        }
-
-        public class ShoppingCart
-        {
-            private List<Product> products = new List<Product>();
-
-            public List<Product> Products
-            {
-                get { return products; }
-            }
-
-            public void AddToCart(Product product)
-            {
-                products.Add(product);
-            }
-
-            public double CalculateTotal()
-            {
-                double total = 0;
-                foreach (Product product in products)
-                {
-                    total += product.CalculateTotal();
-                }
-                return total;
-            }
-        }
-
+       
         private List<Product> storeProducts = new List<Product>();
+        private ShoppingCart cart = new ShoppingCart();
 
         public Form1()
         {
@@ -170,8 +81,6 @@ namespace oop9_products
                 labelCharacteristics.Text = string.Empty;
             }
         }
-
-        private ShoppingCart cart = new ShoppingCart();
 
         private void buttonAddToCart_Click(object sender, EventArgs e)
         {
